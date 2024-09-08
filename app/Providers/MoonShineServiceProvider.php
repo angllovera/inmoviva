@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\MoonShine\Resources\AgenteResource;
+use App\MoonShine\Resources\TipoPropiedadResource;
 use App\MoonShine\Resources\UsuarioResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
@@ -59,6 +60,11 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             MenuGroup::make(static fn() => __('Usuarios'), [
                 MenuItem::make('Usuarios', new UsuarioResource),
                 MenuItem::make('Agentes', new AgenteResource)
+            ]),
+
+            MenuGroup::make(static fn() => __('Propiedades'), [
+                MenuItem::make('Tipo de Propiedad', new TipoPropiedadResource),
+                //MenuItem::make('Agentes', new AgenteResource)
             ]),
 
 
