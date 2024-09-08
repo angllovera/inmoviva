@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Usuario;
-use Illuminate\Support\Facades\Request as FacadesRequest;
+use App\Models\Agente;
+
 use MoonShine\Resources\ModelResource;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 use MoonShine\Decorations\Block;
 use MoonShine\Fields\ID;
 use MoonShine\Fields\Field;
@@ -15,13 +16,13 @@ use MoonShine\Components\MoonShineComponent;
 use MoonShine\Fields\Text;
 
 /**
- * @extends ModelResource<Usuario>
+ * @extends ModelResource<Agente>
  */
-class UsuarioResource extends ModelResource
+class AgenteResource extends ModelResource
 {
-    protected string $model = Usuario::class;
+    protected string $model = Agente::class;
 
-    protected string $title = 'Usuarios';
+    protected string $title = 'Agentes';
 
     protected bool $createInModal = true;
 
@@ -52,7 +53,7 @@ class UsuarioResource extends ModelResource
     }
 
     /**
-     * @param Usuario $item
+     * @param Agente $item
      *
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules

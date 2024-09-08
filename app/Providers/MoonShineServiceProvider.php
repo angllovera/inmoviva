@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\AgenteResource;
 use App\MoonShine\Resources\UsuarioResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
@@ -55,7 +56,13 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 ->badge(fn() => 'Check')
                 ->blank(),*/
 
-            MenuItem::make('Usuarios', new UsuarioResource)
+            MenuGroup::make(static fn() => __('Usuarios'), [
+                MenuItem::make('Usuarios', new UsuarioResource),
+                MenuItem::make('Agentes', new AgenteResource)
+            ]),
+
+
+            //MenuItem::make('Usuarios', new UsuarioResource)
         ];
     }
 
